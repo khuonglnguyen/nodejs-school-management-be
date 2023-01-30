@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const ProgramSchema = new mongoose.Schema(
+const { Schema } = mongoose;
+
+const ProgramSchema = new Schema(
   {
     name: {
       type: String,
@@ -12,7 +14,7 @@ const ProgramSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    codde: {
+    code: {
       type: String,
       default: () => {
         this.name
@@ -25,26 +27,26 @@ const ProgramSchema = new mongoose.Schema(
       },
     },
     createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Admin",
       required: true,
     },
     teachers: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Teacher",
       },
     ],
     teachers: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Student",
         default: [],
       },
     ],
     subjects: [
       {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Subject",
         default: [],
       },
