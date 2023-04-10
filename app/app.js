@@ -23,7 +23,7 @@ app.post("/api/v1/admins/register", (req, res) => {
 });
 
 // admin login
-app.post("/api/v1/admins/register", (req, res) => {
+app.post("/api/v1/admins/login", (req, res) => {
   try {
     res.status(201).json({
       status: "success",
